@@ -9,6 +9,8 @@ public class ABADemo {
     static AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<>(100, 1);
 
     public static void main(String[] args) {
+
+
         System.out.println("======ABA问题的产生======");
 
         new Thread(() -> {
