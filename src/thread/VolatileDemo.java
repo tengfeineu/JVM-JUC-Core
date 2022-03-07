@@ -3,6 +3,12 @@ package thread;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @className: VolatileDemo
+ * @author: wangtf@citic.com
+ * @date: 2022/3/1 11:20
+ * @description ${todo}
+ */
 public class VolatileDemo {
     public static void main(String[] args) {
         //volatileVisibilityDemo();
