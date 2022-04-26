@@ -5,6 +5,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 生产者消费者  阻塞队列版
+ *  * 使用：volatile、CAS、atomicInteger、BlockQueue、线程交互、原子引用
+ */
 public class ProdConsBlockQueueDemo {
     public static void main(String[] args) {
         MyResource myResource = new MyResource(new ArrayBlockingQueue<>(10));
@@ -38,13 +42,15 @@ public class ProdConsBlockQueueDemo {
 }
 
 class MyResource {
-    private volatile boolean FLAG = true; //默认开启，进行生产+消费
+    private volatile boolean FLAG = true; //默认开启，进行生产+消费 保证可见性
+
     private AtomicInteger atomicInteger = new AtomicInteger();
 
     private BlockingQueue<String> blockingQueue;
 
     public MyResource(BlockingQueue<String> blockingQueue) {
         this.blockingQueue = blockingQueue;
+        System.out.println(blockingQueue.getClass().getName());
     }
 
     public void myProd() throws Exception {
